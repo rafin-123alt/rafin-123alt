@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>DARK</title>
+
+  <style>
+
+    body, html {
+
+      margin: 0;
+
+      padding: 0;
+
+      overflow: hidden;
+
+      height: 100vh;
+
+      font-family: Arial, sans-serif;
+
+      color: white;
+
+    }
+
+    canvas {
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      z-index: -1;
+
+    }
+
+    .container {
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      height: 100vh;
+
+      gap: 20px;
+
+      background: rgba(0, 0, 0, 0.5);
+
+    }
+
+    h1 {
+
+      font-size: 48px;
+
+      letter-spacing: 2px;
+
+    }
+
+    .btn {
+
+      background-color: #1e1e1e;
+
+      border: 2px solid #fff;
+
+      padding: 15px 30px;
+
+      font-size: 18px;
+
+      color: white;
+
+      text-decoration: none;
+
+      border-radius: 8px;
+
+      transition: all 0.3s;
+
+    }
+
+    .btn:hover {
+
+      background-color: white;
+
+      color: #1e1e1e;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <canvas id="bg"></canvas>
+
+  <div class="container">
+
+    <h1>DARK</h1>
+
+    <a href="https://app.genn.lu/auth/Drkgenn" class="btn">Generator</a>
+
+    <a href="https://bloxtools.st/generator/Darketh0s" class="btn">Autohar</a>
+
+    <a href="https://discord.gg/NrejzWZupd" class="btn">Join Discord</a>
+
+  </div>
+
+  <script>
+
+    const canvas = document.getElementById('bg');
+
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+
+    canvas.height = window.innerHeight;
+
+    let stars = [];
+
+    for (let i = 0; i < 100; i++) {
+
+      stars.push({
+
+        x: Math.random() * canvas.width,
+
+        y: Math.random() * canvas.height,
+
+        radius: Math.random() * 1.5,
+
+        velocity: Math.random() * 0.5 + 0.2
+
+      });
+
+    }
+
+    function drawStars() {
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "white";
+
+      stars.forEach(star => {
+
+        ctx.beginPath();
+
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+
+        ctx.fill();
+
+        star.y += star.velocity;
+
+        if (star.y > canvas.height) {
+
+          star.y = 0;
+
+          star.x = Math.random() * canvas.width;
+
+        }
+
+      });
+
+      requestAnimationFrame(drawStars);
+
+    }
+
+    drawStars();
+
+    window.addEventListener("resize", () => {
+
+      canvas.width = window.innerWidth;
+
+      canvas.height = window.innerHeight;
+
+    });
+
+  </script>
+
+</body>
+
+</html>
+<!-- partial -->
+  
+</body>
+</html>
