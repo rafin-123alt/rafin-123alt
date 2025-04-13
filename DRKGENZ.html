@@ -1,110 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DARK</title>
+  <meta charset="UTF-8">
+  <title>DARK Tools</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
   <style>
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
-      height: 100vh;
-      font-family: Arial, sans-serif;
+      overflow: hidden;
+      height: 100%;
+      font-family: 'Orbitron', sans-serif;
       color: white;
-      background: url('https://media.discordapp.net/attachments/1360136698503106601/1360635616693321959/standard.gif?ex=67fbd62a&is=67fa84aa&hm=c10839eabf9c3bd53a740aeeb9b6f5ef0f3d0e1ed3185b1fa115f0560669fe8f&') no-repeat center center fixed;
-      background-size: cover;
+      text-align: center;
+      background: #000;
     }
 
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-
-    .container {
+    .overlay {
+      position: relative;
+      z-index: 2;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
-      gap: 20px;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1;
+      align-items: center;
+      height: 100%;
     }
 
     h1 {
-      font-size: 48px;
-      letter-spacing: 2px;
+      font-size: 3em;
+      margin-bottom: 1em;
+      letter-spacing: 4px;
     }
 
     .btn {
-      background-color: #1e1e1e;
-      border: 2px solid #fff;
-      padding: 15px 30px;
-      font-size: 18px;
+      padding: 15px 40px;
+      margin: 10px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.1);
       color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: all 0.3s;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      backdrop-filter: blur(5px);
     }
 
     .btn:hover {
-      background-color: white;
-      color: #1e1e1e;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    #bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
     }
   </style>
 </head>
 <body>
-
-  <canvas id="bg"></canvas>
-
-  <div class="container">
-    <h1>DARK</h1>
-    <a href="https://app.genn.lu/auth/Drkgenn" class="btn">Generator</a>
-    <a href="https://bloxtools.st/generator/Darketh0s" class="btn">Autohar</a>
-    <a href="https://discord.gg/NrejzWZupd" class="btn">Join Discord</a>
+  <div id="bg"></div>
+  <div class="overlay">
+    <h1>DARK Tools</h1>
+    <button class="btn" onclick="window.location.href='https://app.genn.lu/auth/Drkgenn'">Generator</button>
+    <button class="btn" onclick="window.location.href='https://bloxtools.st/generator/Darketh0s'">Autohar</button>
+    <button class="btn" onclick="window.location.href='https://discord.gg/NrejzWZupd'">Join Discord</button>
   </div>
 
+  <!-- Live Background Animation -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    const canvas = document.getElementById('bg');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let stars = [];
-    for (let i = 0; i < 100; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 1.5,
-        velocity: Math.random() * 0.5 + 0.2
-      });
-    }
-
-    function drawStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "white";
-      stars.forEach(star => {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fill();
-        star.y += star.velocity;
-        if (star.y > canvas.height) {
-          star.y = 0;
-          star.x = Math.random() * canvas.width;
+    particlesJS("bg", {
+      "particles": {
+        "number": {
+          "value": 90,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle"
+        },
+        "opacity": {
+          "value": 0.6,
+          "random": true
+        },
+        "size": {
+          "value": 4,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 4,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "bounce": false
         }
-      });
-      requestAnimationFrame(drawStars);
-    }
-
-    drawStars();
-
-    window.addEventListener("resize", () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      },
+      "interactivity": {
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "grab"
+          }
+        }
+      },
+      "retina_detect": true
     });
   </script>
-
 </body>
 </html>
